@@ -71,7 +71,7 @@ namespace Lesson2_ITEA
             age = 35;
 
             const double PI = 3.14;
-            // const double e;
+            const double e;
 
             bool isAlive = false;
 
