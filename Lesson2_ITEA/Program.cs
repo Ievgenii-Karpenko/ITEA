@@ -65,13 +65,11 @@ namespace Lesson2_ITEA
             var weight = 56.5f;
             var height = 166.8;
             var name = "Yevgenii";
-            //var player = new Player();
 
             string mfmm = Console.ReadLine(); 
             age = 35;
 
             const double PI = 3.14;
-            const double e;
 
             bool isAlive = false;
 
