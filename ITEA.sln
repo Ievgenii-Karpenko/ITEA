@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1_ITEA", "Lesson1_ITEA\Lesson1_ITEA.csproj", "{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson2_ITEA", "Lesson2_ITEA\Lesson2_ITEA.csproj", "{01A1E26F-E85C-44C4-8285-EDED9009CC9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67D9414C-F34B-4B4F-8BCD-8FC3A464DBD9}
+	EndGlobalSection
+EndGlobal
