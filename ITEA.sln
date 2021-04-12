@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson3_ITEA", "Lesson3_ITE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4_ITEA", "Lesson4_ITEA\Lesson4_ITEA.csproj", "{A0952C74-8E46-4B15-9B84-7427E26DE8ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homework.csproj", "{6A339EAC-1810-46B0-8409-8E8DD935B5BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework", "Homework\Homework.csproj", "{6A339EAC-1810-46B0-8409-8E8DD935B5BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson5_ITEA", "Lesson5_ITEA\Lesson5_ITEA.csproj", "{6A9405BD-D1CF-4CD8-B6CB-D8A8384125A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9405BD-D1CF-4CD8-B6CB-D8A8384125A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9405BD-D1CF-4CD8-B6CB-D8A8384125A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9405BD-D1CF-4CD8-B6CB-D8A8384125A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9405BD-D1CF-4CD8-B6CB-D8A8384125A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
