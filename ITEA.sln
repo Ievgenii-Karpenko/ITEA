@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1_ITEA", "Lesson1_ITEA\Lesson1_ITEA.csproj", "{7DC2CAD9-545E-49A3-9CFD-845F14C2AEA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson2_ITEA", "Lesson2_ITEA\Lesson2_ITEA.csproj", "{01A1E26F-E85C-44C4-8285-EDED9009CC9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson2_ITEA", "Lesson2_ITEA\Lesson2_ITEA.csproj", "{01A1E26F-E85C-44C4-8285-EDED9009CC9A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson3_ITEA", "Lesson3_ITEA\Lesson3_ITEA.csproj", "{769B02B4-133E-49CC-B08B-2FFB6280B364}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4_ITEA", "Lesson4_ITEA\Lesson4_ITEA.csproj", "{A0952C74-8E46-4B15-9B84-7427E26DE8ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homework.csproj", "{6A339EAC-1810-46B0-8409-8E8DD935B5BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01A1E26F-E85C-44C4-8285-EDED9009CC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{769B02B4-133E-49CC-B08B-2FFB6280B364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769B02B4-133E-49CC-B08B-2FFB6280B364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769B02B4-133E-49CC-B08B-2FFB6280B364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769B02B4-133E-49CC-B08B-2FFB6280B364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0952C74-8E46-4B15-9B84-7427E26DE8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0952C74-8E46-4B15-9B84-7427E26DE8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0952C74-8E46-4B15-9B84-7427E26DE8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0952C74-8E46-4B15-9B84-7427E26DE8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A339EAC-1810-46B0-8409-8E8DD935B5BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

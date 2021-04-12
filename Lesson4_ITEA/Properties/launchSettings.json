@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Lesson4_ITEA": {
+      "commandName": "Project",
+      "commandLineArgs": "name=Ievgenii age=52"
+    }
+  }
+}
