@@ -7,7 +7,7 @@ namespace Lesson4_ITEA
         static void Main(string[] args)
         {
             string name = "Default";
-            name = GetNameFromParams(args, name);
+            name = GetNameFromParams(args: args, name: name);
 
             Console.WriteLine($"hello {name}");
 
@@ -113,6 +113,7 @@ namespace Lesson4_ITEA
 
         static void Mult(in int num1, int num2, out int result)
         {
+            //num1 = 5; // error
             result = num1 * num2;
         }
 
