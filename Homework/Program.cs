@@ -1,125 +1,81 @@
 ﻿using System;
-using System.Globalization;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace HomeWork4
+namespace Lesson_06_HW
 {
-    class Homework4
+    class Classroom
     {
-        static void Main(string[] args)
+        private List<Student> students = new List<Student>();
+
+        // Генерирует ФИО студента из трех массивов. Составляются все возможные уникальные комбинации.
+        // В данном случае 27 комбинаций. Результат записывается в файл, который после читается в List.
+        public void WriteStudentToFile(string dir)
         {
-            // Д/З до 5-го уроку
-            //Зробити програму яка:
-            //0️. Запитує у користувача назви N комп’ютерних ігор і записує їх у масив.
-            //1. Зробити метод який буде сортувати масив цих ігор у зворотньому порядку (від Z до А).
-            //2. Виводить з масиву тільки ті імена, які починаються на якусь букву X. 
-            //3. Всі ці інструкції здійснюються в циклі.
-            //P.S. Значення для N та X мають передаватися програмі, як command line параметер.
+            string filePath = $@"{dir}\Students.txt";
+            string[] arrFirstName = new string[] { "Иван", "Петр", "Сидор" };
+            string[] arrMiddleName = new string[] { "Иванович", "Петрович", "Сидорович" };
+            string[] arrLastName = new string[] { "Иванов", "Петров", "Сидоров" };
+            Random rnd = new Random();
 
-
-            //char letter;
-            //int parsedInt;
-            //Tuple<int, char> parsedParams = ValifateParams(args);
-
-            //Console.WriteLine("Parsed int = " + parsedParams.Item1);
-            //Console.WriteLine("Parsed letter = " + parsedParams.Item2);
-
-            (int parsedInt, char letter) parsedParams2 = ValifateParams(args);
-
-            Console.WriteLine("Parsed int = " + parsedParams2.parsedInt);
-            Console.WriteLine("Parsed letter = " + parsedParams2.letter);
-
-
-
-            (string name, int, double, string, int) person = ("Tom", 25, 81.23, "");
-
-            Console.WriteLine(person.name);
-            Tuple<string, int, double, string> myTup = new Tuple<string, int, double, string>("Tom", 25, 81.23, "");
-            Console.WriteLine(myTup.Item1);
-
-            Console.WriteLine("Starting input to array. To exit, plz type in \"Q\", or hit any key to continue");
-            string Choice = Console.ReadLine();
-            while (Choice != "Q")
+            if (!File.Exists(filePath))
             {
-                Console.WriteLine("Plz enter qty of games you`d like to add to array (or type in \"Q\" to exit):");
-                string ChoiceString = Console.ReadLine();
-                if (ChoiceString == "Q")
-                    break;
-
-                string Digit = "";
-                foreach (char character in ChoiceString)
+                using (FileStream fs = File.Create(filePath))
+                using (StreamWriter writer = new StreamWriter(fs))
                 {
-                    if (char.IsDigit(character))
-                        Digit += character;
-                }
-                int N = int.Parse(Digit);
-
-                string[] arr = new string[N];
-
-                Console.WriteLine(" ____ ");
-
-                Console.WriteLine("Plz enter name of game:");
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    arr[i] = Console.ReadLine();
-                }
-
-                Console.WriteLine(" ____ ");
-
-
-                static string ReverseArr(string[] arr)
-                {
-
-                    for (int i = 0; i < arr.Length; i++)
+                    for (int i = 0; i < arrLastName.Length; i++)
                     {
-                        Console.WriteLine(arr[arr.Length - i - 1]);
+                        for (int j = 0; j < arrFirstName.Length; j++)
+                        {
+                            for (int k = 0; k < arrMiddleName.Length; k++)
+                            {
+                                writer.WriteLine(arrLastName[i] + " " + arrFirstName[j] + " " + arrMiddleName[k] + "-" + rnd.Next(1, 6));
+                            }
+                        }
                     }
-                    return null;
+                    writer.Close();
                 }
-
-                Console.WriteLine("Array sorted from Z to A:");
-                Console.WriteLine(ReverseArr(arr));
-                Console.WriteLine(" ____ ");
-
-                Console.WriteLine("Plz enter first letter of game`s name:");
-                char X = char.Parse(Console.ReadLine());
-
-                static string SearchArr(string[] arr, char X)
-                {
-                    for (int i = 0; i < arr.Length; ++i)
-                    {
-                        if (arr[i][0] == X)
-                            Console.WriteLine(arr[i]);
-                    }
-                    return null;
-                }
-                Console.WriteLine(SearchArr(arr, X));
             }
-
-
         }
 
-        private static (int, char) ValifateParams(string[] args)
+        // Ранее сгенерированный файл читается посточно. Результат ФИО и курс студента хаписывается в List.
+        public void GetStudentsFromFile(string dir)
         {
-            bool parsed = int.TryParse(args[0], out int parsedInt);
-            if (!parsed)
-            {
-                Console.WriteLine("Not able to parse 0-th parameter");
-                parsedInt = 10;
-            }
+            string filePath = $@"{dir}\Students.txt";
+            int courseNum;
+            string[] studentLine = new string[2];
 
-            char letter;
-            if (args[1].Length != 1)
+            using (StreamReader sr = new StreamReader(filePath))
             {
-                Console.WriteLine("Not able to parse 1-th parameter");
-                letter = 'a';
-            }
-            else
-            {
-                letter = args[1][0];
-            }
+                while (sr.Peek() >= 0)
+                {
+                    studentLine = sr.ReadLine().Split("-");
+                    Student student = new Student();
+                    student.Name = studentLine[0];
 
-            return (parsedInt, letter);
+                    if (int.TryParse(studentLine[1], out courseNum))
+                    {
+                        student.CourseNum = courseNum;
+                    }
+                    else
+                    {
+                        student.CourseNum = 0;
+                    }
+
+                    students.Add(student);
+                }
+            }
+        }
+
+        public void WriteAllHomework(string dir)
+        {
+            foreach (var item in students)
+            {
+                item.WriteHomework(dir);
+            }
         }
     }
 }

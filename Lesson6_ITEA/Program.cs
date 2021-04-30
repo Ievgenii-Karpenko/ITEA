@@ -32,7 +32,7 @@ namespace Lesson6_ITEA
 
             //Console.WriteLine($"Name: {name}, surname: {surname}, age: {age}");
 
-            Person myPerson = new Person("John", 32, 50);
+            //Person myPerson = new Person("John", 32, 50);
             //{
             //    Name = "John",
             //    Age = 32,
@@ -57,13 +57,48 @@ namespace Lesson6_ITEA
 
             //another.ShowInfo2();
 
-            Person.StaticMethod();
+            //Person.StaticMethod();
 
-            DogFromAnimals rex = new DogFromAnimals();
-            rex.Say();
+            //DogFromAnimals rex = new DogFromAnimals();
+            //rex.Say();
 
-            Dog rex2 = new Dog();
-            rex2.Say();
+            //Dog rex2 = new Dog();
+            //rex2.Say();
+
+            var s = new Person("dfs");
+
+            Console.WriteLine("What type of person do you want");
+            Person mPers;
+            if(Console.ReadLine() == "M")
+            {
+                mPers = new MovigPerson("Dan", 54, 84, new Position() { positionX = 2, positionY = 5 });
+            }
+            else
+            {
+                mPers = new StaticPerson("John", 54, 84, new Position() { positionX = 2, positionY = 5 });
+            }
+
+            mPers.ShowInfo();
+
+            if (mPers as MovigPerson != null)
+            {
+                (mPers as MovigPerson).MovingMethod();
+            }
+
+            if (mPers is MovigPerson)
+            {
+                MovigPerson moving2 = mPers as MovigPerson;
+                moving2.MovingMethod();
+            }
+
+            if (mPers is MovigPerson moving)
+            {
+                moving.MovingMethod();
+            }
+
+            MovigPerson m2 = new MovigPerson("asd", 50, 50, new Position() { positionX = 2, positionY = 5 });
+            Person p2 = new Person("QQQ", 150, 150);
+            m2 = (MovigPerson)p2;
         }
 
         static string RandomString(int stringLength)

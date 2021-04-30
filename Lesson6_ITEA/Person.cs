@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lesson6_ITEA
 {
-    partial class Person
+    public class Person
     {
         static int personCount = 0;
         //private string Name;
         private double Weight = 50;
+
+
+        const double PI = 3.14;
+        readonly int myReadonly;
 
         private int _age;
         public int Age
@@ -32,16 +36,20 @@ namespace Lesson6_ITEA
 
         public Person()
         {
-
         }
 
         public Person(string name, int age, double weight)
         {
-            Name = name;
-            _age = age;
-            Weight = weight;
+            Console.WriteLine("------- C-tor Person -------");
+            this.Name = name;
+            this._age = age;
+            this.Weight = weight;
         }
 
+        /// <summary>
+        /// Constructs the object
+        /// </summary>
+        /// <param name="name">Name of the person</param>
         public Person(string name)
         {
             Name = name;
@@ -49,7 +57,10 @@ namespace Lesson6_ITEA
             Weight = 66;
         }
 
-        public void ShowInfo()
+        /// <summary>
+        /// Shows info about our object
+        /// </summary>
+        public virtual void ShowInfo()
         {
             Console.WriteLine($"Name: {Name}, Age {_age + personCount}, Weight: {Weight}");
         }
