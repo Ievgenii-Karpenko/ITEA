@@ -9,15 +9,18 @@ namespace Snake2
     public class Snake
     {
         private List<Point> snake = new List<Point>();
-        //private Point head;
+        private char ch = 'o';
+        private Point head;
+        private ConsoleKey direction = ConsoleKey.UpArrow;
 
         public Snake(int x, int y)
         {
             for (int i = 0; i < 3; i++)
             {
-                Point p = new Point(x, y + i, 'o');
+                Point p = new Point(x, y + i, ch);
                 snake.Add(p);
             }
+            head = snake[0];
         }
 
         public void Draw()
@@ -28,21 +31,70 @@ namespace Snake2
             }
         }
 
-        public bool Move()
+        public bool Move(ConsoleKey direction, int maxX, int maxY, Point food)
         {
-            // Direction UP
-            //Point tail = snake[snake.Count - 1];
-            //Point head = snake[0];
-            //tail.X = head.X;
-            //tail.Y = head.Y - 1;
+            if (0 >= head.Y || head.Y >= maxY || 0 >= head.X || head.X >= maxX)
+                return false;
 
-            foreach (var item in snake)
+            int tmpX = head.X;
+            int tmpY = head.Y;
+            bool directionChanged = false;
+            
+            switch (direction)
             {
-                if(item.Y == 0)
-                {
-                    return false;
-                }
-                item.Y--;
+                case ConsoleKey.UpArrow:
+                    if(this.direction != ConsoleKey.DownArrow)
+                    {
+                        directionChanged = true;
+                        tmpX = head.X;
+                        tmpY = head.Y - 1;
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    if (this.direction != ConsoleKey.UpArrow)
+                    {
+                        directionChanged = true;
+                        tmpX = head.X;
+                        tmpY = head.Y + 1;
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (this.direction != ConsoleKey.LeftArrow)
+                    {
+                        directionChanged = true;
+                        tmpX = head.X + 1;
+                        tmpY = head.Y;
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (this.direction != ConsoleKey.RightArrow)
+                    {
+                        directionChanged = true;
+                        tmpX = head.X - 1;
+                        tmpY = head.Y;
+                    }
+                    break;
+            }
+
+            int tailX = snake[snake.Count - 1].X;
+            int tailY = snake[snake.Count - 1].Y;
+
+            for (int i = snake.Count - 1; i > 0; i--)
+            {
+                snake[i].X = snake[i - 1].X;
+                snake[i].Y = snake[i - 1].Y;
+            }
+            head.X = tmpX;
+            head.Y = tmpY;
+
+            if (tmpX == food.X && tmpY == food.Y)
+            {
+                snake.Add(new Point(tailX, tailY, ch));
+            }
+
+            if (directionChanged)
+            {
+                this.direction = direction;
             }
 
             return true;

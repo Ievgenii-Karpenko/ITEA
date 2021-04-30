@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,24 +12,42 @@ namespace Snake2
     {
         static Wall wall;
         static Snake snake;
+        static Point food;
         static int maxX = 100;
         static int maxY = 60;
+        static int score = 0;
+        static BackgroundWorker bgReadKey = new BackgroundWorker();
+        static ConsoleKey pressedKey = ConsoleKey.UpArrow;
 
         static void Main(string[] args)
         {
-            
+            bgReadKey.DoWork += bgReadKey_DoWork;
+            //bgReadKey.RunWorkerCompleted += bgReadKey_RunWorkerCompleted;
+            bgReadKey.RunWorkerAsync();
 
-            Console.SetWindowSize(maxX + 2, maxY + 2);
-            Console.SetBufferSize(maxX + 2, maxY + 2);
+            Console.SetWindowSize(maxX + 22, maxY + 2);
+            Console.SetBufferSize(maxX + 22, maxY + 2);
+            Console.CursorVisible = false;
 
             wall = new Wall(maxX, maxY);
             snake = new Snake(maxX/2, maxY/2);
+            food = FoodFactory.GenerateFood(maxX, maxY);
 
             Draw();
             //Timer t = new Timer(Draw, null, 0, 500);
 
+            //while (true)
+            //{//Read the pressed key
+            //    snake.Move(pressedKey, maxX, maxY);
+            //}
 
             Console.ReadLine();
+        }
+
+        static void ShowScore()
+        {
+            Console.SetCursorPosition(maxX + 3, 2);
+            Console.Write($"Score: {score}");
         }
 
         static void GameOver()
@@ -43,18 +62,32 @@ namespace Snake2
             {
                 Console.Clear();
                 wall.Draw();
-                snake.Draw();
+                food.Draw();
+                ShowScore();
 
-
-                if(!snake.Move())
+                if (!snake.Move(pressedKey, maxX, maxY, food))
                 {
+                    
                     GameOver();
                     return;
                 }
 
-                Thread.Sleep(200);
+                snake.Draw();
+                Thread.Sleep(300);
             }
-            
+        }
+
+        private static void bgReadKey_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while(true)
+            { 
+                pressedKey = Console.ReadKey().Key;
+            }
         }
     }
 }
+
+
+// 1. Зробити окренимий енум для напряму руху
+// 2. Прибирати їду і генерувати нову
+// 3. Зробити інкремент score при з"їданні
