@@ -99,5 +99,17 @@ namespace Snake2
 
             return true;
         }
+
+        public bool IsHitHead()
+        {
+            for (int i = snake.Count - 2; i > 0; i--)
+            {
+                if (snake[i] == head)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

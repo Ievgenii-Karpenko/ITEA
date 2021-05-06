@@ -8,24 +8,22 @@ namespace Lesson9_ITEA
     {
         static void Main(string[] args)
         {
-            //Person pers = new Person();
-            //Console.WriteLine("Name: " + pers.Name);
-            //Console.WriteLine("Age: " + pers.Age);
+            Person pers = new Person();
+            Console.WriteLine("Name: " + pers.Name);
+            Console.WriteLine("Age: " + pers.Age);
 
 
+            Person pers2;
+            pers2.Name = "pers2";
+            pers2.Age = 22;
+            Console.WriteLine("Name: " + pers2.Name);
+            Console.WriteLine("Age: " + pers2.Age);
 
-
-            //Person pers2;
-            //pers2.Name = "pers2";
-            //pers2.Age = 22;
-            //Console.WriteLine("Name: " + pers2.Name);
-            //Console.WriteLine("Age: " + pers2.Age);
-
-            //PersonClass persCl2;
-            //persCl2.Name = "pers2";
-            //persCl2.Age = 22;
-            //Console.WriteLine("Name: " + persCl2.Name);
-            //Console.WriteLine("Age: " + persCl2.Age);
+            PersonClass persCl2;
+            persCl2.Name = "pers2";
+            persCl2.Age = 22;
+            Console.WriteLine("Name: " + persCl2.Name);
+            Console.WriteLine("Age: " + persCl2.Age);
 
             Person pers3 = new Person() { Name = "123" };
             GetPersonNameE(pers3);

@@ -10,11 +10,13 @@ namespace Snake2
     {
         private static char Ch = 'f';
 
-        public static Point GenerateFood(int maxX, int maxY)
+        public static Point GenerateFood(int maxX, int maxY, in Snake s)
         {
             Random rnd = new Random();
             int x = rnd.Next(1, maxX);
             int y = rnd.Next(1, maxY);
+
+            //check if food == snake
 
             return new Point(x, y, Ch);
         }

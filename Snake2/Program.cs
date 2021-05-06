@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace Snake2
 
             wall = new Wall(maxX, maxY);
             snake = new Snake(maxX/2, maxY/2);
-            food = FoodFactory.GenerateFood(maxX, maxY);
+            food = FoodFactory.GenerateFood(maxX, maxY, snake);
 
             Draw();
             //Timer t = new Timer(Draw, null, 0, 500);
@@ -42,6 +43,7 @@ namespace Snake2
             //}
 
             Console.ReadLine();
+
         }
 
         static void ShowScore()
@@ -55,6 +57,18 @@ namespace Snake2
             Console.SetCursorPosition(maxX/2, maxY/2);
             Console.WriteLine("Game over!");
         }
+
+        static void SaveGame()
+        {
+            var reg = new Regex();
+            reg.Match
+        }
+
+        static void LoadGame()
+        {
+
+        }
+
 
         static void Draw()
         {
@@ -91,3 +105,11 @@ namespace Snake2
 // 1. Зробити окренимий енум для напряму руху
 // 2. Прибирати їду і генерувати нову
 // 3. Зробити інкремент score при з"їданні
+
+//-------------
+// 1. Add menu for load and new game
+// 2. Implement save and load of snake, food, score to file -- use help menu
+
+// Snake: {1,2} {1,3} ... {2,5}
+// Food: {1,2}
+// Score: 123
