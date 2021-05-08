@@ -11,7 +11,7 @@ namespace Snake2
         private List<Point> points = new List<Point>();
         private char Ch = 'W';
 
-        public Wall(int maxX, int maxY)
+        public Wall(int maxX, int maxY, char ch)
         {
             for (int i = 0; i < maxX; i++)
             {
@@ -28,6 +28,7 @@ namespace Snake2
                 p = new Point(maxX, i, Ch);
                 points.Add(p);
             }
+            Ch = ch;
         }
 
         public void Draw()

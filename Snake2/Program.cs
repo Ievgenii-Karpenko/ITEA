@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -19,6 +20,7 @@ namespace Snake2
         static int score = 0;
         static BackgroundWorker bgReadKey = new BackgroundWorker();
         static ConsoleKey pressedKey = ConsoleKey.UpArrow;
+        static string saveFilePath = "SavedGame.txt";
 
         static void Main(string[] args)
         {
@@ -30,21 +32,23 @@ namespace Snake2
             Console.SetBufferSize(maxX + 22, maxY + 2);
             Console.CursorVisible = false;
 
-            wall = new Wall(maxX, maxY);
+            wall = new Wall(maxX, maxY, '#');
             snake = new Snake(maxX/2, maxY/2);
             food = FoodFactory.GenerateFood(maxX, maxY, snake);
 
-            Draw();
-            //Timer t = new Timer(Draw, null, 0, 500);
+            //Draw();
+            Timer t = new Timer(Draw, null, 0, 500);
 
-            //while (true)
-            //{//Read the pressed key
-            //    snake.Move(pressedKey, maxX, maxY);
-            //}
+            while (true)
+            {//Read the pressed key
+                //snake.Move(pressedKey, maxX, maxY);
+            }
 
             Console.ReadLine();
 
         }
+
+
 
         static void ShowScore()
         {
@@ -58,15 +62,56 @@ namespace Snake2
             Console.WriteLine("Game over!");
         }
 
-        static void SaveGame()
+        static void Save(Snake snake, Point food, int foodCounter)
         {
-            var reg = new Regex();
-            reg.Match
+            Console.Clear();
+
+            using (StreamWriter sw = new StreamWriter(saveFilePath, false, Encoding.Default))
+            {
+                string stringToWrite = "s";
+                foreach (var item in snake.snake)
+                {
+                    stringToWrite += "," + item.X + ":" + item.Y;
+                }
+                sw.WriteLine(stringToWrite);
+
+                stringToWrite = "f," + food.X + ":" + food.Y;
+                sw.WriteLine(stringToWrite);
+
+                stringToWrite = "c," + foodCounter;
+                sw.WriteLine(stringToWrite);
+
+                sw.Close();
+            }
+
+            //Game.Close();
+
         }
 
         static void LoadGame()
         {
-
+            Console.Clear();
+            wall = new Wall(x, y, '#');
+            string[] lines = File.ReadAllLines(saveFilePath);
+            foreach (var line in lines)
+            {
+                switch (line[0])
+                {
+                    case 's':
+                        snake = new Snake(line);
+                        break;
+                    case 'f':
+                        int foodX = Convert.ToInt32(line.Split(',')[1].Split(':')[0]);
+                        int foodY = Convert.ToInt32(line.Split(',')[1].Split(':')[1]);
+                        foodFactory = new FoodFactory();
+                        foodFactory.CreateFood(foodX, foodY, '@');
+                        break;
+                    case 'c':
+                        foodCounter = Convert.ToInt32(line.Split(',')[1]);
+                        break;
+                }
+            }
+            time = new Timer(Loop, null, 0, 300);
         }
 
 

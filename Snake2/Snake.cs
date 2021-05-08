@@ -8,7 +8,7 @@ namespace Snake2
 {
     public class Snake
     {
-        private List<Point> snake = new List<Point>();
+        public List<Point> snake = new List<Point>();
         private char ch = 'o';
         private Point head;
         private ConsoleKey direction = ConsoleKey.UpArrow;
