@@ -4,8 +4,18 @@ namespace Lesson4_ITEA
 {
     class Program
     {
+        static void PrintHelloMsg()
+        {
+            Console.WriteLine("Hello");
+            Console.WriteLine("My name is Yevhenii");
+        }
+
         static void Main(string[] args)
         {
+
+
+
+
             string name = "Default";
             name = GetNameFromParams(args: args, name: name);
 

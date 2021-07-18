@@ -1,60 +1,96 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Lesson5_ITEA
 {
+    class User
+    {
+
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            var array1 = new int[5];
-            array1[0] = 2;
-            array1[1] = 5;
-            array1[2] = 3;
-            array1[2] = 75;
-            array1[4] = 3;
-            //array1[5] = 3;
+            
+            //foreach (var item in args)
+            //{
+                
+            //    if (item == "debug")
+            //    {
+            //        Console.WriteLine("DEBUG is present");
+            //    }
+            //}
+            //Console.ReadKey();
 
-            foreach (var item in array1)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("-----------------------");
-            string[] arr2 = new string[] { "Sunday", "Monday", "..." };
-            for (int i = 0; i < arr2.Length; i++)
-            {
-                Console.WriteLine(arr2[i]);
-            }
+            //int count = 5;
+            //var array1 = new int[count];
+            //array1[2] = 3;
+            //array1[3] = 75;
+            //array1[4] = 3;
+            //array1[0] = 2;
+            //array1[1] = 5;
 
-            Console.WriteLine("-----------------------");
-            int[] arr3 = { 55, 22, 45, 75 };
-            // var arr3 = { 55, 22, 45, 75 }; // couldn't use var here
-            foreach (var item in array1)
-            {
-                Console.WriteLine(item);
-            }
+            ////Console.WriteLine(array1.Length * sizeof(int));
+
+
+            //////array1 = new int[6];
+            //////array1[5] = 3;
+
+            ////foreach (var item in array1)
+            ////{
+            ////    Console.WriteLine(item);
+            ////}
+            //Console.WriteLine("-----------------------");
+
+            //var arr2 = new string[] { "Sunday", "Monday", "..." };
+            //for (int i = 0; i < arr2.Length; i++)
+            //{
+            //    Console.WriteLine(arr2[i]);
+            //    foreach (var item in arr2[i])
+            //    {
+            //        Console.WriteLine(item);
+            //    }
+            //}
+
+            //Console.WriteLine("-----------------------");
+            //int[] arr3 = { 55, 22, 45, 75 };
+            //User[] users = new User[2];
+            //// int[] != int
+            ////var arr3 = { 55, 22, 45, 75 }; // couldn't use var here
+            //foreach (var item in array1)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             //Console.WriteLine("-----------------------");
             //// 1  2  3  4
             //// 11 22 33 44
             int[,] arr2d = { {1,2,3,4 }, {11,22,33,44 } };
-            arr2d[0, 0] = 41;
-            arr2d[0, 1] = 3;
+            //int[,] arr2d2 = new int[2,4];
+
             for (int i = 0; i < arr2d.Rank; i++)
             {
-                for (int k = 0; k < arr2d.Length / arr2d.Rank; k++)
+                for (int k = 0; k < arr2d.GetUpperBound(1) +1; k++)
                 {
-                    Console.WriteLine(arr2d[i, k]);
+                    Console.Write(arr2d[i, k] + "\t");
                 }
+                Console.WriteLine();
+            }
+
+            foreach (var item in arr2d)
+            {
+                Console.Write(item + "\t");
             }
 
             Console.WriteLine("-----------------------");
-            //1  2  3
+            // 1  2  3
             // 11 22 33 44 55
             int[][] jArr = new int[2][];
-            jArr[0] = new int[3] { 1, 2, 3 };
-            jArr[1] = new int[5] { 11, 22, 33, 44, 55 };
+            jArr[0] = new int[] { 1, 2, 3 };
+            jArr[1] = new int[] { 11, 22, 33, 44, 55 };
 
             for (int i = 0; i < jArr.Length; i++)
             {
@@ -72,84 +108,102 @@ namespace Lesson5_ITEA
             {
                 foreach (var innerItem in item)
                 {
-                    Console.WriteLine(innerItem);
+                    Console.Write(innerItem);
+                    Console.Write("\t");
                 }
+                Console.WriteLine();
             }
 
             Console.WriteLine("-----------------------");
-            Console.WriteLine("3-Dimension array");
+            //Console.WriteLine("3-Dimension array");
 
-            string[][][] arr3d = new string[2][][];
-            arr3d[0][0] = new string[2];
-            arr3d[0][1] = new string[2];
+            //string[][][] arr3d = new string[2][][];
+            //arr3d[0][0] = new string[2];
+            //arr3d[0][1] = new string[2];
 
-            arr3d[1][0] = new string[3];
-            arr3d[1][1] = new string[3];
+            //arr3d[1][0] = new string[3];
+            //arr3d[1][1] = new string[3];
 
-            for (int i = 0; i < arr3d.Rank; i++)
-            {
-                for (int j = 0; j < arr3d[].Rank; j++)
-                {
-                    for (int л = 0; j < arr3d.Length / arr3d.Rank; j++)
-                    {
+            //for (int i = 0; i < arr3d.Rank; i++)
+            //{
+            //    for (int j = 0; j < arr3d[].Rank; j++)
+            //    {
+            //        for (int л = 0; j < arr3d.Length / arr3d.Rank; j++)
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
-            foreach (var item in arr3d)
-            {
-                int rnd = new Random().Next(0, 100);
-                item = ((char)rnd).ToString();
-            }
+            //foreach (var item in arr3d)
+            //{
+            //    int rnd = new Random().Next(0, 100);
+            //    //item = ((char)rnd).ToString();
+            //}
 
 
             string input = "Hello world!"; // -> World! Hello
-            var charArr = input.ToCharArray();
+
+            char[] charArr = input.ToCharArray();
+            
             int[] intArr = { 541, 11, -6, 23, 0 };
 
             //Console.WriteLine(ReverseString(input));
             //Console.WriteLine(ReverseWords(input));
 
-            Array.Sort(intArr);
-            Array.Fill(intArr, 5);
+            //Array.Sort(intArr);  // in-place
+            //Array.Reverse(intArr);
+            //Array.Fill(intArr, 5);
 
-            string[] arrS = Array.CreateInstance(typeof(string), 10) as string[]; // null
-            Array.Fill(arrS, "fasdf");
+            //string[] arrS = Array.CreateInstance(typeof(string), 10) as string[]; // null
+            //Array.Fill(arrS, "fasdf");
 
-            Array.ForEach(arrS, item => Console.WriteLine(item));
-            bool isAllff = Array.TrueForAll(arrS, item => item == "fff");
-            if (isAllff)
-                Console.WriteLine("all elements is \"fff\"");
+            //Array.ForEach(arrS, item => Console.WriteLine(item));
+            //Array.ForEach(arrS, PrintElement);
+
+            //bool isAllff = Array.TrueForAll(arrS, item => item == "fff");
+            //if (isAllff)
+            //    Console.WriteLine("all elements is \"fff\"");
 
 
-            foreach (var item in arrS)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in arrS)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
             Console.WriteLine("Enter numbers. For exit type 'q'");
-            string input = string.Empty;
-            List<int> list = new List<int>();
+            ////string input = string.Empty;
+            //List<List<int>> list = new List<List<int>>(8);
 
-            while (input != "q")
-            {
-                input = Console.ReadLine();
-                if (input == "q")
-                    break;
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    list.Add(new List<int>());
+            //    for (int j = 0; j < 3; j++)
+            //    {
+            //        list[i].Add(j*4);
+            //    }
+            //}
 
-                int convertedInput = Convert.ToInt32(input);
-                list.Add(convertedInput);
-            }
 
-            Console.WriteLine("Items inside list:");
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            //while (input != "q")
+            //{
+            //    input = Console.ReadLine();
+            //    if (input == "q")
+            //        break;
+
+            //    int convertedInput = Convert.ToInt32(input);
+            //    //list.Add(convertedInput);
+            //}
+
+            //Console.WriteLine("Items inside list:");
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             ArrayList arrList = new ArrayList();
+            //List<int> arrList = new List<int>();
 
             while (input != "q")
             {
@@ -162,6 +216,8 @@ namespace Lesson5_ITEA
                 arrList.Add("Hello");
             }
 
+            //int sum = (int)arrList[0] + (int)arrList[1];
+
             Console.WriteLine("Items inside list:");
             foreach (var item in arrList)
             {
@@ -170,6 +226,10 @@ namespace Lesson5_ITEA
 
         }
 
+        static void PrintElement(string elemement)
+        {
+            Console.WriteLine(elemement);
+        }
 
 
         static string ReverseWords(string input)
@@ -194,21 +254,22 @@ namespace Lesson5_ITEA
             // !d
             // !dl
             // ...
+            string res = "";
 
             char[] inputCharArr = input.ToCharArray();
-            //for (int i = input.Length - 1; i >= 0; i--)
-            //{
-            //    res = res + input[i];
-            //}
+            for (int i = input.Length - 1; i >= 0; i--)
+            {
+                res = res + input[i];
+            }
 
             Array.Reverse(inputCharArr);
 
-            //for (int i = 0; i < inputCharArr.Length/2; i++)
-            //{
-            //    char temp = inputCharArr[i];
-            //    inputCharArr[i] = inputCharArr[inputCharArr.Length - 1 - i];
-            //    inputCharArr[inputCharArr.Length - 1 - i] = temp;
-            //}
+            for (int i = 0; i < inputCharArr.Length / 2; i++)
+            {
+                char temp = inputCharArr[i];
+                inputCharArr[i] = inputCharArr[inputCharArr.Length - 1 - i];
+                inputCharArr[inputCharArr.Length - 1 - i] = temp;
+            }
             return new string(inputCharArr);
         }
     }
