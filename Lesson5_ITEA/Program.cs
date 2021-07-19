@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 
 namespace Lesson5_ITEA
 {
@@ -12,63 +13,82 @@ namespace Lesson5_ITEA
 
     class Program
     {
+        static void SetUsers(out List<string> users)
+        {
+            users = new List<string>();
+            users.Add("");
+        }
+
         static void Main(string[] args)
         {
-            
-            //foreach (var item in args)
-            //{
-                
-            //    if (item == "debug")
-            //    {
-            //        Console.WriteLine("DEBUG is present");
-            //    }
-            //}
-            //Console.ReadKey();
+            int[] a1 = new int[2];
 
-            //int count = 5;
-            //var array1 = new int[count];
-            //array1[2] = 3;
-            //array1[3] = 75;
-            //array1[4] = 3;
-            //array1[0] = 2;
-            //array1[1] = 5;
+            for (int i = 0; i < a1.Length; i++)
+            {
+                Console.WriteLine(a1[i]);
+            }
 
-            ////Console.WriteLine(array1.Length * sizeof(int));
+            a1 = new int[4];
 
 
-            //////array1 = new int[6];
-            //////array1[5] = 3;
+            List<string> users;
+            SetUsers(out users);
 
-            ////foreach (var item in array1)
-            ////{
-            ////    Console.WriteLine(item);
-            ////}
-            //Console.WriteLine("-----------------------");
+            foreach (var item in args)
+            {
 
-            //var arr2 = new string[] { "Sunday", "Monday", "..." };
-            //for (int i = 0; i < arr2.Length; i++)
-            //{
-            //    Console.WriteLine(arr2[i]);
-            //    foreach (var item in arr2[i])
-            //    {
-            //        Console.WriteLine(item);
-            //    }
-            //}
+                if (item == "debug")
+                {
+                    Console.WriteLine("DEBUG is present");
+                }
+            }
+            Console.ReadKey();
 
-            //Console.WriteLine("-----------------------");
-            //int[] arr3 = { 55, 22, 45, 75 };
-            //User[] users = new User[2];
-            //// int[] != int
-            ////var arr3 = { 55, 22, 45, 75 }; // couldn't use var here
-            //foreach (var item in array1)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            int count = 5;
+            int[] array1 = new int[count];
+            array1[2] = 3;
+            array1[3] = 75;
+            array1[4] = 3;
+            array1[0] = 2;
+            array1[1] = 5;
+
+            Console.WriteLine(array1.Length * sizeof(int));
+
+
+            //array1 = new int[6];
+            //array1[5] = 3;
+
+            foreach (var item in array1)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("-----------------------");
+
+            var arr2 = new string[] { "Sunday", "Monday", "..." };
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                Console.WriteLine(arr2[i]);
+                foreach (var item in arr2[i])
+                {
+                    Console.WriteLine(item);
+                }
+            }
+
+            Console.WriteLine("-----------------------");
+            int[] arr3 = { 55, 22, 45, 75 };
+            User[] users = new User[2];
+            // int[] != int
+            //var arr3 = { 55, 22, 45, 75 }; // couldn't use var here
+            foreach (var item in array1)
+            {
+                Console.WriteLine(item);
+            }
 
             //Console.WriteLine("-----------------------");
             //// 1  2  3  4
             //// 11 22 33 44
             int[,] arr2d = { {1,2,3,4 }, {11,22,33,44 } };
+            arr2d[0, 1] = 2;
             //int[,] arr2d2 = new int[2,4];
 
             for (int i = 0; i < arr2d.Rank; i++)
@@ -145,62 +165,65 @@ namespace Lesson5_ITEA
             string input = "Hello world!"; // -> World! Hello
 
             char[] charArr = input.ToCharArray();
-            
+            charArr[2] = 'T';
+            input = new string(charArr);
+
+
             int[] intArr = { 541, 11, -6, 23, 0 };
 
             //Console.WriteLine(ReverseString(input));
             //Console.WriteLine(ReverseWords(input));
 
-            //Array.Sort(intArr);  // in-place
-            //Array.Reverse(intArr);
-            //Array.Fill(intArr, 5);
+            Array.Sort(intArr);  // in-place
+            Array.Reverse(intArr);
+            Array.Fill(intArr, 5);
 
-            //string[] arrS = Array.CreateInstance(typeof(string), 10) as string[]; // null
-            //Array.Fill(arrS, "fasdf");
+            string[] arrS = Array.CreateInstance(typeof(string), 10) as string[]; // null
+            Array.Fill(arrS, "fasdf");
 
-            //Array.ForEach(arrS, item => Console.WriteLine(item));
-            //Array.ForEach(arrS, PrintElement);
+            Array.ForEach(arrS, item => Console.WriteLine(item));
+            Array.ForEach(arrS, PrintElement);
 
-            //bool isAllff = Array.TrueForAll(arrS, item => item == "fff");
-            //if (isAllff)
-            //    Console.WriteLine("all elements is \"fff\"");
+            bool isAllff = Array.TrueForAll(arrS, item => item == "fff");
+            if (isAllff)
+                Console.WriteLine("all elements is \"fff\"");
 
 
-            //foreach (var item in arrS)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            foreach (var item in arrS)
+            {
+                Console.WriteLine(item);
+            }
 
 
             Console.WriteLine("Enter numbers. For exit type 'q'");
-            ////string input = string.Empty;
-            //List<List<int>> list = new List<List<int>>(8);
+            //string input = string.Empty;
+            List<List<int>> list = new List<List<int>>(8);
+            List<int> list2 = new List<int>(8);
 
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    list.Add(new List<int>());
-            //    for (int j = 0; j < 3; j++)
-            //    {
-            //        list[i].Add(j*4);
-            //    }
-            //}
+            for (int i = 0; i < 2; i++)
+            {
+                list.Add(new List<int>());
+                for (int j = 0; j < 3; j++)
+                {
+                    list[i].Add(j * 4);
+                }
+            }
 
+            while (input != "q")
+            {
+                input = Console.ReadLine();
+                if (input == "q")
+                    break;
 
-            //while (input != "q")
-            //{
-            //    input = Console.ReadLine();
-            //    if (input == "q")
-            //        break;
+                int convertedInput = Convert.ToInt32(input);
+                //list.Add(convertedInput);
+            }
 
-            //    int convertedInput = Convert.ToInt32(input);
-            //    //list.Add(convertedInput);
-            //}
-
-            //Console.WriteLine("Items inside list:");
-            //foreach (var item in list)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            Console.WriteLine("Items inside list:");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
 
             ArrayList arrList = new ArrayList();
             //List<int> arrList = new List<int>();
@@ -216,7 +239,7 @@ namespace Lesson5_ITEA
                 arrList.Add("Hello");
             }
 
-            //int sum = (int)arrList[0] + (int)arrList[1];
+            int sum = (int)arrList[0] + (int)arrList[1];
 
             Console.WriteLine("Items inside list:");
             foreach (var item in arrList)
@@ -232,18 +255,19 @@ namespace Lesson5_ITEA
         }
 
 
+        // Hello world!
         static string ReverseWords(string input)
         {
             string[] splitted = input.Split(new char[]{' '});
-            string result = "";
+            StringBuilder result = new StringBuilder();
 
             for (int i = splitted.Length - 1; i >= 0; i--)
             {
-                result += splitted[i];
+                result.Append(splitted[i]);
                 if (i != 0)
-                    result += " ";
+                    result.Append(" ");
             }
-            return result;
+            return result.ToString();
         }
 
 
@@ -256,13 +280,18 @@ namespace Lesson5_ITEA
             // ...
             string res = "";
 
-            char[] inputCharArr = input.ToCharArray();
-            for (int i = input.Length - 1; i >= 0; i--)
+            if(input[0] == 'G')
             {
-                res = res + input[i];
+
             }
 
-            Array.Reverse(inputCharArr);
+            char[] inputCharArr = input.ToCharArray();
+            //for (int i = input.Length - 1; i >= 0; i--)
+            //{
+            //    res = res + input[i];
+            //}
+
+            //Array.Reverse(inputCharArr);
 
             for (int i = 0; i < inputCharArr.Length / 2; i++)
             {
