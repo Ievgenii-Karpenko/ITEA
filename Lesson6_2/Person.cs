@@ -6,9 +6,28 @@ using System.Threading.Tasks;
 
 namespace Lesson6_2
 {
-    partial class Person
+    public interface IWorker
     {
-        private string _name = "Noname";
+        string Proffesion { get; set; }
+    }
+
+
+    public interface IPerson
+    {
+        string Name { get; set; }
+        int Age { get; set; }
+    }
+
+
+    public class HardWorker : IWorker
+    {
+        public string Proffesion { get; set; }
+        public bool IsHardWorker = true;
+    }
+
+    public partial class Person : IPerson, IWorker
+    {
+        protected string _name = "Noname";
         private int _age = 0;
         private double _weight;
 
@@ -16,6 +35,20 @@ namespace Lesson6_2
         public readonly string BioClass2;// = "Homo Sapiens";
 
         public static int Pupulation = 0;
+
+        public string Proffesion { get; set; }
+
+        public static void ShowPopulation()
+        {
+            Console.WriteLine($"Population = {Pupulation}");
+            //Console.WriteLine($"Name = {Name}");
+        }
+
+        public void ShowPopulation2()
+        {
+            Console.WriteLine($"Population = {Pupulation}");
+            Console.WriteLine($"Name = {Name}");
+        }
 
         public string Name
         {
@@ -32,7 +65,7 @@ namespace Lesson6_2
             }
         }
 
-        public string Surname { get; private set; }
+        public string Surname { get; private set; } = "Unknown";
 
         public int Age //(int value)
         {
@@ -64,17 +97,19 @@ namespace Lesson6_2
 
         public Person()
         {
+            Console.WriteLine("PERSON C-TOR");
+
             BioClass2 = "Homo Sapiens Sapiens";
             Pupulation++;
         }
 
-        public Person(string bioClass)
+        public Person(string name)
         {
-            BioClass2 = bioClass;
+            _name = name;
             Pupulation++;
         }
 
-        public Person(string Name, string surname, int age, double weight)
+        public Person(string Name, string surname, int age, double weight = 90)
         {
             this._name = Name;
             Surname = surname;
@@ -83,7 +118,7 @@ namespace Lesson6_2
             Pupulation++;
         }
 
-        public override string ToString()
+        public virtual string ShowInfo()
         {
             return $"Name: {_name}, surname: {Surname}, age: {_age}, weight: {_weight}";
         }

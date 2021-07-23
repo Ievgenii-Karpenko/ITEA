@@ -9,21 +9,21 @@ namespace Lesson6_2
         {
             //Work with files
             {
-                //string path = "File_1.txt";
-                //string content = "Hello world";
+                string path = "File_1.txt";
+                string content = "Hello world";
 
-                //File.WriteAllText(path, content);
+                File.WriteAllText(path, content);
 
 
-                //File.Copy(path, @"..\File_2.txt", true);
-                //File.Delete(path);
+                File.Copy(path, @"..\File_2.txt", true);
+                File.Delete(path);
 
                 string[] files = Directory.GetFiles(@"C:\Windows");
-                //foreach (var item in files)
-                //{
-                //    FileAttributes atr = File.GetAttributes(item);
-                //    Console.WriteLine(item + atr);
-                //}
+                foreach (var item in files)
+                {
+                    FileAttributes atr = File.GetAttributes(item);
+                    Console.WriteLine(item + atr);
+                }
 
                 string name;
                 string surname;

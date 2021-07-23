@@ -8,6 +8,6 @@ namespace Lesson6_2
 {
     partial class Person
     {
-        public string Profession = "Developer";
+        //public string Profession = "Developer";
     }
 }

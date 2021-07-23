@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson10_ITEA", "Lesson10_I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4_2", "Lesson4_2\Lesson4_2.csproj", "{E73DDAE7-F027-4E33-B1CD-3C4A637939A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6_2", "Lesson6_2\Lesson6_2.csproj", "{A0455941-E62B-4587-9DA2-D539E468DC17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson6_2", "Lesson6_2\Lesson6_2.csproj", "{A0455941-E62B-4587-9DA2-D539E468DC17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewSnake", "NewSnake\NewSnake.csproj", "{4CD35936-9A1D-4A84-9190-010841EB981E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_7_2", "Lesson_7_2\Lesson_7_2.csproj", "{51ACE083-11ED-450C-BFF1-C0A8A7D1DF62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{4CD35936-9A1D-4A84-9190-010841EB981E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD35936-9A1D-4A84-9190-010841EB981E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD35936-9A1D-4A84-9190-010841EB981E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51ACE083-11ED-450C-BFF1-C0A8A7D1DF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51ACE083-11ED-450C-BFF1-C0A8A7D1DF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51ACE083-11ED-450C-BFF1-C0A8A7D1DF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51ACE083-11ED-450C-BFF1-C0A8A7D1DF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
