@@ -28,7 +28,7 @@ namespace Lesson_7_2
         public int Square { get; set; } = 0;
     }
 
-    public class Triange : Shape
+    public sealed class Triange : Shape
     {
         public override int GetPerimeter()
         {
@@ -40,6 +40,10 @@ namespace Lesson_7_2
             Console.WriteLine("This is Triange");
         }
     }
+
+    //public class Triange2 : Triange
+    //{
+    //}
 
     public class Circle : Shape
     {

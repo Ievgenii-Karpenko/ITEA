@@ -8,67 +8,83 @@ namespace Lesson7_ITEA
     {
         static void Main(string[] args)
         {
-            Shape sh1 = new Circle();
-            Shape sh2 = new Square();
-            Shape sh3 = new Triangel();
+            Car b1 = new Car();
+            Car b2 = new Car() { Mark="BMW", Year=2016};
+            Car b3 = new Car() { Mark="Renault", Year=2005};
 
-            List<Shape> shapes = new List<Shape>();
+            List<Car> cars = new List<Car>() { b1, b2, b3 };
 
-            shapes.Add(sh1);
-            shapes.Add(sh2);
-            shapes.Add(sh3);
+            IComparer<Car> comparer = new CarMarkComparator();
 
-            foreach (var item in shapes)
-            {
-                item.Draw();
-
-                if (item is Circle cir)
-                    cir.GetRadius();
-            }
-
-            Car car1 = new Car();
-            Car car2 = new Car();
-            Bus bus = new Bus();
-            Bus bus2 = new Bus();
-            Truck truck = new Truck();
-            Truck truck2 = new Truck();
-
-            List<ICar> cars = new List<ICar>() { car1, car2, bus, truck, truck2 };
-
-            List<ITruckCar> truckCars = new List<ITruckCar>();
-            truckCars.Add(truck);
-            truckCars.Add(truck2);
-            //truckCars.Add(bus);
-
-            List<ITransport> busCars = new List<ITransport>();
-            busCars.Add(bus);
-            busCars.Add(bus2);
+            cars.Sort();
 
             foreach (var item in cars)
             {
-                item.Accelerate();
+                Console.WriteLine($"{item.Mark} - {item.Year}");
             }
 
-            foreach (var item in truckCars)
-            {
-                item.GetCapacity();
-            }
 
-            car2.Label = "Opel";
-            car2.Year = 2020;
-            var car3 = new Car() { Label = "BMW", Year = 2000 };
+            //Shape sh1 = new Circle();
+            //Shape sh2 = new Square();
+            //Shape sh3 = new Triangel();
 
-            List<Car> cars = new List<Car>() { car1, car2, car3 };
-            
-            Car[] carsArray = cars.ToArray();
-            
+            //List<Shape> shapes = new List<Shape>();
 
-            Array.Sort(carsArray, new CarPowerComparator());
+            //shapes.Add(sh1);
+            //shapes.Add(sh2);
+            //shapes.Add(sh3);
 
-            foreach (Car item in carsArray)
-            {
-                Console.WriteLine($"{item.Label} - {item.Year}");
-            }
+            //foreach (var item in shapes)
+            //{
+            //    item.Draw();
+
+            //    if (item is Circle cir)
+            //        cir.GetRadius();
+            //}
+
+            //Car car1 = new Car();
+            //Car car2 = new Car();
+            //Bus bus = new Bus();
+            //Bus bus2 = new Bus();
+            //Truck truck = new Truck();
+            //Truck truck2 = new Truck();
+
+            //List<ICar> cars = new List<ICar>() { car1, car2, bus, truck, truck2 };
+
+            //List<ITruckCar> truckCars = new List<ITruckCar>();
+            //truckCars.Add(truck);
+            //truckCars.Add(truck2);
+            ////truckCars.Add(bus);
+
+            //List<ITransport> busCars = new List<ITransport>();
+            //busCars.Add(bus);
+            //busCars.Add(bus2);
+
+            //foreach (var item in cars)
+            //{
+            //    item.Accelerate();
+            //}
+
+            //foreach (var item in truckCars)
+            //{
+            //    item.GetCapacity();
+            //}
+
+            //car2.Label = "Opel";
+            //car2.Year = 2020;
+            //var car3 = new Car() { Label = "BMW", Year = 2000 };
+
+            //List<Car> cars = new List<Car>() { car1, car2, car3 };
+
+            //Car[] carsArray = cars.ToArray();
+
+
+            //Array.Sort(carsArray, new CarPowerComparator());
+
+            //foreach (Car item in carsArray)
+            //{
+            //    Console.WriteLine($"{item.Label} - {item.Year}");
+            //}
         }
     }
 }

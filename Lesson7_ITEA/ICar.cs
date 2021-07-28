@@ -9,9 +9,16 @@ namespace Lesson7_ITEA
     interface ICar
     {
         void TurnWheel(bool isleft);
-        void Accelerate();
+        void Accelerate()
+        {
+            Console.WriteLine("asdsad");
+        }
+
         void SwitchGear(int gear);
         void Stop();
+
+        //int speed { get; set; }
+        //event 
     }
 
     interface ITruckCar
@@ -22,5 +29,6 @@ namespace Lesson7_ITEA
     interface ITransport
     {
         int PeopleCapacity();
+        void Stop();
     }
 }

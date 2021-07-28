@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace Lesson7_ITEA
 {
-    class CarComparator : IComparer<Car>
+    class CarMarkComparator : IComparer<Car>
     {
         public int Compare(Car x, Car y)
         {
-            return x.CompareTo(y);
+            return 0 - x.Mark.CompareTo(y.Mark);
         }
     }
 
-    class CarPowerComparator : IComparer<Car>
-    {
-        public int Compare(Car x, Car y)
-        {
-            return x.CompareTo(y);
-        }
-    }
+    //class CarPowerComparator : IComparer<Car>
+    //{
+    //    public int Compare(Car x, Car y)
+    //    {
+    //        return x.CompareTo(y);
+    //    }
+    //}
 
     class Car : ICar, IComparable<Car>//, IEnumerable
     {
-        public string Label = "Mersedes";
+        public string Mark = "Mersedes";
         public int Year = 1990;
  
 
@@ -60,7 +60,7 @@ namespace Lesson7_ITEA
         }
     }
 
-    class Truck : ICar, ITruckCar
+    class Truck : ICar//, ITruckCar
     {
         public int GetCapacity()
         {
@@ -99,9 +99,14 @@ namespace Lesson7_ITEA
             return 25;
         }
 
-        public void Stop()
+        void ICar.Stop()
         {
-            Console.WriteLine("Stop Bus");
+            Console.WriteLine("Stop Bus from ICar");
+        }
+
+        void ITransport.Stop()
+        {
+            Console.WriteLine("Stop Bus from ITransport");
         }
 
         public void SwitchGear(int gear)

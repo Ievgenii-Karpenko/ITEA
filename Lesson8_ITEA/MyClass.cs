@@ -8,8 +8,6 @@ namespace Lesson8_ITEA
 {
     public static class MyCalc
     {
-        //public string Name = "Unknown";
-
         public static string StaticName;
         public static int Sum(int num1, int num2) => num1 + num2;
         public static int Diff(int num1, int num2)
@@ -22,17 +20,17 @@ namespace Lesson8_ITEA
             StaticName = "164564";
         }
 
-        public static int GetCharCount(this string ss, char ch)
-        {
-            int counter = 0;
-            foreach (var item in ss)
-            {
-                if (item == ch)
-                    counter++;
-            }
+        //public static int GetCharCount(this string ss, char ch)
+        //{
+        //    int counter = 0;
+        //    foreach (var item in ss)
+        //    {
+        //        if (item == ch)
+        //            counter++;
+        //    }
 
-            return counter;
-        }
+        //    return counter;
+        //}
     }
 
     public class MyNonStaticCalc

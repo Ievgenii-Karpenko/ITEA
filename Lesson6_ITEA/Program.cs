@@ -37,38 +37,38 @@ namespace Lesson6_ITEA
 
             //Classes
             {
-                Person myPerson = new Person("John", 32, 50);
-                {
-                    Name = "John",
-                    Age = 32,
-                    Weight = 50.0,
-                };
-                myPerson.Name = "John";
-                myPerson.Age = 32;
-                myPerson.Weight = 50.0;
-                myPerson.ShowInfo();
-                Person another = new Person("Jessica");
-                another.Age = 33;
-                //another.Name ="Jessica";
-                another.ShowInfo();
+                //Person myPerson = new Person("John", 32, 50);
+                //{
+                //    Name = "John",
+                //    Age = 32,
+                //    Weight = 50.0,
+                //};
+                //myPerson.Name = "John";
+                //myPerson.Age = 32;
+                //myPerson.Weight = 50.0;
+                //myPerson.ShowInfo();
+                //Person another = new Person("Jessica");
+                //another.Age = 33;
+                ////another.Name ="Jessica";
+                //another.ShowInfo();
 
-                string name = another.Name;
-                Console.WriteLine(name);
+                //string name = another.Name;
+                //Console.WriteLine(name);
 
-                int age = another.Age;
-                Console.WriteLine(age);
+                //int age = another.Age;
+                //Console.WriteLine(age);
 
-                Console.WriteLine(another.BirthYear);
+                //Console.WriteLine(another.BirthYear);
 
-                another.ShowInfo2();
+                //another.ShowInfo2();
 
-                Person.StaticMethod();
+                //Person.StaticMethod();
 
-                DogFromAnimals rex = new DogFromAnimals();
-                rex.Say();
+                //DogFromAnimals rex = new DogFromAnimals();
+                //rex.Say();
 
-                Dog rex2 = new Dog();
-                rex2.Say();
+                //Dog rex2 = new Dog();
+                //rex2.Say();
 
                 var s = new Person("dfs");
 
