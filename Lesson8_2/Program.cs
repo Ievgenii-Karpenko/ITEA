@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Lesson8_2
 {
-    public enum DayOfWeek
+    public enum DayOfWeek : byte
     {
-        Mon = 1,
-        Tue = 2,
-        Wed = 33,
+        Mon,
+        Tue,
+        Wed,
         Thu = 55,
         Fri = 66,
         Sut = 77,
@@ -47,21 +47,21 @@ namespace Lesson8_2
 
         static void Main(string[] args)
         {
-            Human h = new Human();
-            h.Info = HumanInfo.IsPretty | HumanInfo.IsAlive;
-
-
+            //Human h = new Human();
+            //h.Info = HumanInfo.IsPretty | HumanInfo.IsAlive | HumanInfo.IsClever;
+            //h.Info &= ~HumanInfo.IsAlive & ~HumanInfo.IsPretty;
+            ////h.Info &= ~HumanInfo.IsPretty;
 
             //Week w1 = new Week();
-            //w1.CurrentDay = DayOfWeek.Sut;
+            //w1.CurrentDay = DayOfWeek.Sun;
 
             //Console.WriteLine((int)DayOfWeek.Sut);
             //Console.WriteLine((DayOfWeek)3);
 
-            if (Enum.TryParse(typeof(DayOfWeek), "Sut", out object res))
-            {
-                var result = (DayOfWeek)res;
-            }
+            //if (Enum.TryParse(typeof(DayOfWeek), "Sut", out object res))
+            //{
+            //    var result = (DayOfWeek)res;
+            //}
 
             //switch (w1.CurrentDay)
             //{
@@ -79,8 +79,32 @@ namespace Lesson8_2
             //        break;
             //}
 
+            //p2._name = "klark";
+            //Console.WriteLine(p1._name);
+            //Console.WriteLine(p2._name);
 
-            //Person p1 = new Person() { _name = "John", _age = 35};
+            //Console.WriteLine("-------------------------------------------");
+            //PersonC p3 = new PersonC() { _name = "John", _age = 35 };
+            //PersonC p4 = p3;
+            //Console.WriteLine(p3._name);
+            //Console.WriteLine(p4._name);
+
+            //p3._name = "klark";
+            //Console.WriteLine(p3._name);
+            //Console.WriteLine(p4._name);
+
+            //PersonC p5 = p3 + p2;
+
+            //if (p5.Equals(p3))
+            //{
+            //    Console.Write("Age of p5 > 0");
+            //}
+
+            //if (p5 == p3)
+            //{
+            //    Console.Write("Age of p5 > 0");
+            //}
+
             //Person p2 = new Person() { _name = "Mark" };
             //Person p3 = new Person() { _name = "Mark" };
 
@@ -91,6 +115,29 @@ namespace Lesson8_2
             ////PersonC p2 = new PersonC();
 
             //GetPersonName(p1);
+
+            Person p1 = new Person() { _name = "John", _age = 22 };
+            Console.WriteLine(p1._name);
+
+            AddSymbolToName(ref p1, 'F');
+            Console.WriteLine(p1._name);
+            Console.WriteLine("-------------------------------------------");
+            PersonC p2 = new PersonC() { _name = "John", _age = 22 };
+            Console.WriteLine(p2._name);
+
+            AddSymbolToName(ref p2, 'F');
+            Console.WriteLine(p2._name);
+        }
+
+        static void AddSymbolToName(ref Person p, char ch)
+        {
+            p._name += ch;
+        }
+
+        static void AddSymbolToName(ref PersonC p, char ch)
+        {
+            p._name += ch;
+            p = new PersonC() { _name = "Ivan", _age = 55 };
         }
 
         static string GetPersonName(Person p)

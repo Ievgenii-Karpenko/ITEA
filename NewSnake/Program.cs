@@ -7,15 +7,32 @@ using System.Threading.Tasks;
 
 namespace NewSnake
 {
-    public class Item
+    interface IDraw
+    {
+        void Draw();
+    }
+
+    public class Item : IDraw
     {
         public int X;
         public int Y;
         public char Ch;
 
+        public Item(int x, int y, char ch)
+        {
+            X = x;
+            Y = y;
+            Ch = ch;
+        }
+
+        public void Draw()
+        {
+            Console.SetCursorPosition(X,Y);
+            Console.Write(Ch);
+        }
     }
 
-    public class Walls
+    public class Walls : IDraw
     {
         public List<Item> WallItems = new List<Item>();
 
@@ -26,7 +43,7 @@ namespace NewSnake
 
         public void Draw()
         {
-            foreach (var item in Walls)
+            foreach (var item in WallItems)
             {
                 Console.SetCursorPosition(item.X, item.Y);
                 Console.Write(item.Ch);
@@ -39,20 +56,24 @@ namespace NewSnake
         static int x = 0;
         static int y = 0;
         static Walls walls;
+        static Snake snake;
+
         static void Main(string[] args)
         {
-            Console.SetWindowSize(30, 60);
-            Console.CursorVisible = false;
-            walls = new Walls(30, 60);
+            int consoleWidth = 70;
+            int consoleHeight = 50;
 
-            Snake snake = new Snake();
+            Console.SetWindowSize(consoleWidth, consoleHeight);
+            Console.CursorVisible = false;
+            walls = new Walls(consoleWidth, consoleHeight);
+            snake = new Snake(consoleWidth / 2, consoleHeight / 2);
 
             Timer timer = new Timer(Draw, null, 100, 500);
 
             while(true)
             {
-                var key = Console.ReadKey();
-                snake.SetDirection(key);
+                ConsoleKeyInfo key = Console.ReadKey();
+                snake.SetDirection(key.Key);
             }
 
             Console.ReadLine();
@@ -61,10 +82,12 @@ namespace NewSnake
         static void Draw(object state)
         {
             Console.Clear();
-            Console.SetCursorPosition(x++,y++);
+
+            snake.Move();
+
             snake.Draw();
             walls.Draw();
-            food.Draw();
+            //food.Draw();
         }
     }
 }
